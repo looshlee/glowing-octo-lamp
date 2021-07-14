@@ -20,6 +20,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
+
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
